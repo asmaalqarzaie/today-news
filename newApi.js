@@ -4,6 +4,7 @@ let city ="Riyadh";
 let weatherKey = `4dd358741c714d9ba97f2b4cb9fff416`;
 
 btn.addEventListener("click" ,(event) =>{
+    console.log("test")
     event.preventDefault()
     city = document.getElementById("weather-input").value;
     console.log(city)
@@ -16,7 +17,7 @@ function weatherFun(){
         res.json().then(data=>{
             console.log(data)
             let temp = data.data[0].app_temp;
-            let cityName = data.data[0].cityName;
+            let cityName = data.data[0].city_name;
             let status = data.data[0].weather.description;
             let code = data.data[0].weather.icon
             document.querySelector(".weather").innerHTML = `${temp}<br> ${status} <br> ${cityName} <img src="https://www.weatherbit.io/static/img/icons/${code}.png"/>`;
